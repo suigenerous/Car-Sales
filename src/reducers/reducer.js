@@ -24,13 +24,14 @@ function reducer(state = initialState, action) {
     // debugger;
     switch (action.type){
         case ('ADD_FEATURE'):{
-            const newStateObj = {...state, car: {...state.car, features: [...state.car.features, action.payload]}};
+            const newPrice = state.additionalPrice + action.payload.price;
+            const newStateObj = {...state, additionalPrice: newPrice, car: {...state.car, features: [...state.car.features, action.payload]}};
             return newStateObj; 
         }
         case ('REMOVE_FEATURE'):{
-            // console.log(action.payload);
+            const newPrice = state.additionalPrice - action.payload.price;
             const newFeaturesArr = state.car.features.filter(f => f !== action.payload);
-            const newStateObj = {...state, car: {...state.car, features: newFeaturesArr}};
+            const newStateObj = {...state, additionalPrice: newPrice, car: {...state.car, features: newFeaturesArr}};
             return newStateObj; // action2   
         }
         case ('ACTION_3'):{
