@@ -34,9 +34,6 @@ function reducer(state = initialState, action) {
             const newStateObj = {...state, additionalPrice: newPrice, car: {...state.car, features: newFeaturesArr}};
             return newStateObj; // action2   
         }
-        case ('ACTION_3'):{
-            return state; // action3  
-        }
         default:
             return state;
     }
