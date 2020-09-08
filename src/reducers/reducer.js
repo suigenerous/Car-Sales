@@ -1,3 +1,6 @@
+const ADD_FEATURE = "ADD_FEATURE"; 
+const REMOVE_FEATURE = "REMOVE_FEATURE";
+
 const initialState = {
 
     additionalPrice: 0,
@@ -18,13 +21,17 @@ const initialState = {
 
 
 function reducer(state = initialState, action) {
+    // debugger;
     switch (action.type){
-        case ('ACTION_1'):
-            return; // action1
+        case ('ADD_FEATURE'):
+            // console.log(action.payload);
+            const newStateObj = {...state, car: {...state.car, features: [...state.car.features, action.payload]}};
+            // console.log(newStateObj)
+            return newStateObj; // action1
         case ('ACTION_2'):
-            return; // action2   
+            return state; // action2   
         case ('ACTION_3'):
-            return; // action3  
+            return state; // action3  
         default:
             return state;
     }
