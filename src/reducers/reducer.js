@@ -24,11 +24,10 @@ function reducer(state = initialState, action) {
     // debugger;
     switch (action.type){
         case ('ADD_FEATURE'):
-            // console.log(action.payload);
             const newStateObj = {...state, car: {...state.car, features: [...state.car.features, action.payload]}};
-            // console.log(newStateObj)
-            return newStateObj; // action1
-        case ('ACTION_2'):
+            return newStateObj; 
+        case ('REMOVE_FEATURE'):
+            console.log(action.payload);
             return state; // action2   
         case ('ACTION_3'):
             return state; // action3  

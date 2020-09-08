@@ -5,7 +5,7 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import { connect } from 'react-redux';
-import { addFeature } from './actions'
+import { addFeature, removeFeature } from './actions'
 
 const App = (props) => {
 
@@ -15,6 +15,11 @@ const App = (props) => {
     // return props.addFeature(feature);
     // return props.addFeature(feature);
   };
+
+  const removeFeatureHandler = (e, feature) => {
+    e.preventDefault();
+    props.removeFeature(feature);
+  }
 
   return (
     <div className="boxes">
@@ -40,4 +45,4 @@ const mapStateToProps = state => {
 
   }
 }
-export default connect(mapStateToProps, {addFeature})(App)
+export default connect(mapStateToProps, {addFeature, removeFeature})(App)
