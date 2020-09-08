@@ -23,14 +23,19 @@ const initialState = {
 function reducer(state = initialState, action) {
     // debugger;
     switch (action.type){
-        case ('ADD_FEATURE'):
+        case ('ADD_FEATURE'):{
             const newStateObj = {...state, car: {...state.car, features: [...state.car.features, action.payload]}};
             return newStateObj; 
-        case ('REMOVE_FEATURE'):
-            console.log(action.payload);
-            return state; // action2   
-        case ('ACTION_3'):
+        }
+        case ('REMOVE_FEATURE'):{
+            // console.log(action.payload);
+            const newFeaturesArr = state.car.features.filter(f => f !== action.payload);
+            const newStateObj = {...state, car: {...state.car, features: newFeaturesArr}};
+            return newStateObj; // action2   
+        }
+        case ('ACTION_3'):{
             return state; // action3  
+        }
         default:
             return state;
     }
